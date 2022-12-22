@@ -1,0 +1,42 @@
+# Check if requirements are met
+# Don't try to actually run this, instead go to the other file.
+
+try:                                        
+    import datetime                                                          Tries to import a required library
+except ImportError:                                                          Sees if an error has happened
+    import subprocess                                                        Imports subprocess (comes with python)
+    subprocess.check_call(["python", '-m', 'pip', 'install', 'datetime'])    Uses subprocess to install datetime if it isnt installed already
+                                                 
+# Fulfill requirements
+
+from datetime import date                                                    Imports the date module of datetime
+
+# Variables
+
+today = date.today()                                                         Makes a variable to find what the day is
+year = today.year                                                            Makes a variable to get the year from the date variable
+
+# Start
+
+# Asking for user input:
+while True:                                                                  Loops the code asking for user input
+    try:
+        birth_year = int(input('What is your birth year? '))                 Asks the user for input 
+        if birth_year > year:                                                Seeing if the given year is in the future
+            print("Your birth year cannot be in the future.")                Telling the user their birth year can't be in the future
+            continue                                                         Continuing in the loop
+        elif birth_year < 1900:                                              Seeing if the year is too far back
+            print("Your birth year is too far in the past.")                 Telling the user their birth year can't be too long ago
+            continue                                                         Continuing in the loop
+        break                                                                Breaking the loop, due to the place its in meaning the user inputted valid input
+    except ValueError:                                                       If the user has inputted stuff not filtered earlier, that's invalid this stops them
+        print("Please enter a valid birth year.")                            Gives a message saying that they can't put invalid input in
+
+# Doing the math:
+age = year - birth_year                                                      Does self explanitory math
+
+# Printing results
+if age == 0:                                                                 Tests if the person is a newborn, so that it can use else
+    print("You are 0 years old today! Amazingly large number!")              Does stand up comedy
+else:                                                                        If this person is not a new born, then continue
+    print(f"You are {age} years old today!")                                 Prints out the users age
