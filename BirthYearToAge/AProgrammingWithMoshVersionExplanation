@@ -1,0 +1,3 @@
+birth_year = input('What is your birth year? ')                  Takes user input
+age = 2022 - int(birth_year)                                     Does math things
+print(age)                                                       Shows output
