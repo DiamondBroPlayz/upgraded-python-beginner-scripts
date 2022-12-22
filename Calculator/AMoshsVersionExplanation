@@ -1,0 +1,4 @@
+first = float(input("First: "))                      Capture user input
+second = float(input("Second: "))                    Capture user input
+sum = first + second                                 Do math
+print('Sum:' + sum)                                  Print output
